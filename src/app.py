@@ -1,0 +1,3 @@
+import Bot
+
+Bot.launch()
