@@ -1,3 +1,1 @@
 import Bot
-
-Bot.launch()

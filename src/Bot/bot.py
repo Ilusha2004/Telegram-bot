@@ -9,7 +9,7 @@ def start(message):
     # bot.send_message(message.chat.id, mes, parse_mode='html')
     bot.reply_to(message, "Howdy, how are you doing?")
     
-# @bot.message_handler(func=lambda m: True)
+# @bot.message_handler(func=lambda m: True)pip3 uninstall telebotp
 # def echo_all(message):
 # 	bot.reply_to(message, message.text)
  
