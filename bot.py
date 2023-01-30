@@ -1,11 +1,12 @@
 import asyncio
 import logging
 
-from aiogram import Bot, Dispatcher
+from aiogram import Bot, Dispatcher, executor
 
 from config_data.config import Config, load_config
 from handlers.user_handlers import register_user_handlers
 from handlers.other_handlers import register_other_handlers
+from menu.main_menu import set_main_menu
 
 
 # Инициализируем логгер
@@ -13,7 +14,7 @@ logger = logging.getLogger(__name__)
 
 
 # Фнукция для регистрации всех хэндлеров
-def register_all_handlers(dp: Dispatcher) -> None:
+async def register_all_handlers(dp: Dispatcher) -> None:
     register_user_handlers(dp)
     register_other_handlers(dp)
 
@@ -37,7 +38,8 @@ async def main():
     dp: Dispatcher = Dispatcher(bot)
 
     # Регистрируем все хэндлеры
-    register_all_handlers(dp)
+    await register_all_handlers(dp)
+    await set_main_menu(dp)
 
     # Запускаем polling
     try:
