@@ -7,6 +7,7 @@ from config_data.config import Config, load_config
 from handlers.user_handlers import register_user_handlers
 from handlers.other_handlers import register_other_handlers
 from menu.main_menu import set_main_menu
+from handlers.admin_handlers import initial
 
 
 # Инициализируем логгер
@@ -40,6 +41,7 @@ async def main():
     # Регистрируем все хэндлеры
     await register_all_handlers(dp)
     await set_main_menu(dp)
+    await initial(dp)
 
     # Запускаем polling
     try:
