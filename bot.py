@@ -18,6 +18,7 @@ logger = logging.getLogger(__name__)
 async def register_all_handlers(dp: Dispatcher) -> None:
     register_user_handlers(dp)
     register_other_handlers(dp)
+    initial(dp)
 
 
 # Функция конфигурирования и запуска бота
@@ -41,7 +42,6 @@ async def main():
     # Регистрируем все хэндлеры
     await register_all_handlers(dp)
     await set_main_menu(dp)
-    await initial(dp)
 
     # Запускаем polling
     try:

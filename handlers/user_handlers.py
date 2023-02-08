@@ -9,6 +9,7 @@ from services.services import get_bot_choice, get_winner
 
 # Этот хэндлер срабатывает на команду /start
 async def process_start_command(message: Message):
+    print(message)
     await message.answer(text=LEXICON_RU['/start'], reply_markup=yes_no_kb)
 
 
